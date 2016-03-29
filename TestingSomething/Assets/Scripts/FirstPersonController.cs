@@ -42,6 +42,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 		private Rigidbody rbody;
+		public float jumpForce;
         // Use this for initialization
         private void Start()
         {
@@ -56,6 +57,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
 			rbody = this.GetComponent<Rigidbody>();
+			jumpForce = 5.0f;
         }
 
 
@@ -114,7 +116,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			//rbody.velocity = new Vector3(
 			// use camera graduation to move along its axis (by using rigidbody.velocity(cameragraduation)... well nope !
 
-
+			/*if (Input.GetButtonDown ("Jump")) 
+				rbody.velocity +=  Vector3.up * jumpForce;*/
 
 
             // get a normal for the surface that is being touched to move along it
